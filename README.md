@@ -2,6 +2,8 @@
 
 This repository hosts the final project for NTU CSIE DIP 2024, Group 15. The project is a 3D Virtual Try-on App designed to provide an interactive and realistic virtual fitting experience.
 
+[SEE DEMO HERE Until 2025/01/05](http://solitude6060.asuscomm.com:9992/)
+
 ## Prerequisites
 
 - Ensure you have Docker installed and running on your system.
