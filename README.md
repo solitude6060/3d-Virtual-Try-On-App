@@ -44,7 +44,8 @@ If you encounter issues:
 
 1. Check the environments of the individual Docker containers to ensure they are properly set up.
 2. The most common issue is with the TRELLIS environment. Refer to the [TRELLIS GitHub repository](https://github.com/Microsoft/TRELLIS) for detailed installation instructions.
-3. After fixing the TRELLIS environment, rerun the API script inside the container:
+3. There might be some issue. You can fix it by install [kaolin](https://kaolin.readthedocs.io/en/latest/notes/installation.html) 
+4. After fixing the TRELLIS environment, rerun the API script inside the container:
    ```bash
    cd TRELLIS && bash run_api.sh
    ```
