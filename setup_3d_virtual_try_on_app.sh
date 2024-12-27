@@ -49,9 +49,10 @@ docker exec $TRELLIS_CONTAINER bash -c "cd 3d-Virtual-Try-On-App/TRELLIS && bash
 echo "[INFO] Deploying Gradio App"
 GRADIO_IMAGE="python:3.10"
 GRADIO_CONTAINER="gradio-container"
+GRADIO_PORT=9113
 
 if ! docker ps -a | grep -q "$GRADIO_CONTAINER"; then
-  docker run -dit --name $GRADIO_CONTAINER --network $NETWORK_NAME $GRADIO_IMAGE bash
+  docker run -dit --name $GRADIO_CONTAINER --network $NETWORK_NAME -p $GRADIO_PORT:$GRADIO_PORT $GRADIO_IMAGE bash
   docker exec $GRADIO_CONTAINER bash -c "apt-get update && apt-get install -y git && git clone $GITHUB_REPO && pip install -r 3d-Virtual-Try-On-App/requirements/requirements_app.txt"
 else
   echo "[INFO] Gradio container already exists"
@@ -63,4 +64,5 @@ docker exec $GRADIO_CONTAINER bash -c "cd 3d-Virtual-Try-On-App/demo_example_gra
 echo "[INFO] All services are deployed."
 echo "CatVTON API: http://localhost:$CATVTON_PORT"
 echo "TRELLIS API: http://localhost:$TRELLIS_PORT"
-echo "Gradio App: Check console output for port information."
+echo "Gradio App: http://localhost:$GRADIO_PORT"
+echo "Gradio App: Or check console output for port information."

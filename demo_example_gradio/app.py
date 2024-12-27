@@ -187,5 +187,5 @@ with gr.Blocks(title="DIP Group 15") as demo:
     )
 
 
-demo.launch(server_name="0.0.0.0", server_port=9992, share=True, allowed_paths=["../imgs/3d_targets", "../imgs/3d_outputs"])
+demo.launch(server_name="0.0.0.0", server_port=9113, share=True, allowed_paths=["../imgs/3d_targets", "../imgs/3d_outputs"])
 
