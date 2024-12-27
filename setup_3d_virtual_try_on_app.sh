@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 登入 Docker Hub
+docker login
+
 # 設定變數
 GITHUB_REPO="https://github.com/solitude6060/3d-Virtual-Try-On-App.git"
 NETWORK_NAME="virtual-try-on-net"
@@ -14,7 +17,7 @@ fi
 
 # 部署 CatVTON API
 echo "[INFO] Deploying CatVTON API"
-CATVTON_IMAGE="docker.io/solitude6060/3d-virtual-try-on-app-catvton"
+CATVTON_IMAGE="solitude6060/3d-virtual-try-on-app-catvton:1.0.0"
 CATVTON_CONTAINER="catvton-container"
 CATVTON_PORT=9111
 
@@ -29,7 +32,7 @@ docker exec $CATVTON_CONTAINER bash -c "cd 3d-Virtual-Try-On-App/CatVTON && bash
 
 # 部署 TRELLIS API
 echo "[INFO] Deploying TRELLIS API"
-TRELLIS_IMAGE="docker.io/solitude6060/3d-virtual-try-on-app-trellis"
+TRELLIS_IMAGE="solitude6060/3d-virtual-try-on-app-trellis:1.0.0"
 TRELLIS_CONTAINER="trellis-container"
 TRELLIS_PORT=9112
 
@@ -54,7 +57,7 @@ else
   echo "[INFO] Gradio container already exists"
 fi
 
-docker exec $GRADIO_CONTAINER bash -c "cd 3d-Virtual-Try-On-App/demo_example_gradio && python app.py" &
+docker exec $GRADIO_CONTAINER bash -c "cd 3d-Virtual-Try-On-App/demo_example_gradio && python app.py" > app.log 2>&1 &
 
 # 結束
 echo "[INFO] All services are deployed."
