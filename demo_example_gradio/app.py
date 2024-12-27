@@ -10,8 +10,8 @@ import numpy as np
 TRY_ON_API_URL = "http://solitude6060.asuscomm.com:9200/swap"
 GEN_3D_API_URL = "http://solitude6060.asuscomm.com:9100/process-image/"
 '''
-TRY_ON_API_URL = "http://localhost:9111/swap" 
-GEN_3D_API_URL = "http://localhost:9112/process-image" 
+TRY_ON_API_URL = "http://catvton-container:9111/swap" 
+GEN_3D_API_URL = "http://trellis-container:9112/process-image" 
 
 
 # Helper functions
